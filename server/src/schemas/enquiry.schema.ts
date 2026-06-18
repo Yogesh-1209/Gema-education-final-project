@@ -10,16 +10,17 @@ export const enquirySchema = z.object({
   phone: z
     .string()
     .trim()
-    .regex(/^[\d\s+()-]{7,20}$/, 'Please enter a valid phone number')
-    .optional()
-    .or(z.literal('')),
-  organization: z
+    .regex(/^[\d\s+()-]{7,20}$/, 'Please enter a valid phone number'),
+  workshopTitle: z
     .string()
     .trim()
-    .max(150, 'Organization must be under 150 characters')
-    .optional()
-    .or(z.literal('')),
-  workshopId: z.string().regex(/^[a-f\d]{24}$/i, 'Invalid workshop ID'),
+    .min(1, 'Workshop title is required')
+    .max(200)
+    .optional(),
+  workshopId: z
+    .string()
+    .regex(/^[a-f\d]{24}$/i, 'Invalid workshop ID')
+    .optional(),
 })
 
 export type EnquiryInput = z.infer<typeof enquirySchema>

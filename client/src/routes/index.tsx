@@ -4,6 +4,7 @@ import { GuestRoute } from '@/components/layout/GuestRoute'
 import { PageLoader } from '@/components/layout/PageLoader'
 import { ROUTES } from '@/constants/routes'
 import { HomePage } from '@/pages/HomePage'
+import { AiRoboticsWorkshopPage } from '@/pages/AiRoboticsWorkshopPage'
 
 const LoginPage = lazy(() =>
   import('@/pages/LoginPage').then((m) => ({ default: m.LoginPage })),
@@ -20,6 +21,7 @@ export function AppRouter() {
     <Suspense fallback={<PageLoader />}>
       <Routes>
         <Route path={ROUTES.HOME} element={<HomePage />} />
+        <Route path={ROUTES.AI_ROBOTICS_WORKSHOP} element={<AiRoboticsWorkshopPage />} />
         <Route
           path={ROUTES.LOGIN}
           element={
