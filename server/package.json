@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "seed": "tsx src/scripts/seed.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "render:build": "npm install --include=dev && npm run build"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
