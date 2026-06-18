@@ -1,0 +1,7 @@
+export { HeroSection } from './HeroSection'
+export { WorkshopDetailsSection } from './WorkshopDetailsSection'
+export { LearningOutcomesSection } from './LearningOutcomesSection'
+export { SpeakersSection } from './SpeakersSection'
+export { FAQSection } from './FAQSection'
+export { CTASection } from './CTASection'
+export { RegistrationSection } from './RegistrationSection'

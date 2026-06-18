@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply m-0 font-sans text-text antialiased;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 40%, #eef2ff 100%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+
+  ::selection {
+    @apply bg-primary-200 text-primary-900;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/60 bg-white/70 backdrop-blur-xl;
+  }
+
+  .glass-premium {
+    @apply border border-white/50 bg-white/60 shadow-premium backdrop-blur-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-animated {
+    @apply bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-shift;
+  }
+
+  .section-padding {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+
+  .card-interactive {
+    @apply transition-all duration-500 ease-smooth;
+    @apply hover:-translate-y-1.5 hover:shadow-card-hover;
+  }
+
+  .mesh-gradient {
+    background:
+      radial-gradient(at 27% 37%, rgba(99, 102, 241, 0.14) 0px, transparent 50%),
+      radial-gradient(at 97% 21%, rgba(236, 72, 153, 0.12) 0px, transparent 50%),
+      radial-gradient(at 52% 99%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+      radial-gradient(at 10% 29%, rgba(129, 140, 248, 0.12) 0px, transparent 50%);
+  }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(white, white) padding-box,
+      linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(236, 72, 153, 0.4), rgba(99, 102, 241, 0.3)) border-box;
+    border: 1px solid transparent;
+  }
+
+  .btn-shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-shimmer::after {
+    content: '';
+    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent;
+    animation: shimmer 2.5s ease-in-out infinite;
+  }
+
+  .badge-shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .badge-shimmer::before {
+    content: '';
+    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-soft,
+  .animate-float,
+  .animate-float-slow,
+  .animate-float-delayed,
+  .animate-spin,
+  .animate-spin-slow,
+  .animate-gradient-shift,
+  .animate-aurora,
+  .btn-shimmer::after,
+  .badge-shimmer::before {
+    animation: none !important;
+  }
+}
